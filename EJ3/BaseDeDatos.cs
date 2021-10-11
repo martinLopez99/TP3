@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EJ3
 {
-    public static class BaseDeDatos
+    public class BaseDeDatos
     {
         public static string[] vectorNombres = new string[] { "Bastian", "Giani", "Elliot", "Kermitt", "Gianfranco", "Hans", "Yannick", "Uziel", "Dylan", "Jermaine",
                                                                                       "Axel", "Jasper", "Kilian", "Dennís", "Ian", "Mirt", "Ryan", "Gary", "Sammy", "Noah",
@@ -24,8 +24,24 @@ namespace EJ3
                                                                                                   "2020-05-31 02:17:45", "2020-08-16 04:29:49", "2019-12-19 06:18:17", "2021-01-16 08:29:15", "2020-10-11 13:29:44","2021-05-29 05:53:25", "2021-01-03 15:35:39", "2021-08-20 15:05:49", "2020-05-15 09:22:50", "2019-10-13 14:53:03"};
         public static TipoMotivo[] vectorMotivos = new TipoMotivo[] { };
 
+        public void FillTipoMotivo() // ver de cabiar de lugar sin que genere problemas 
+        {
+            Random numero = new Random();
+            for (int i = 0; i < 15; i++)
+            {
+                TipoMotivo motivo = new TipoMotivo();
+                motivo.Consulta = true;
+                vectorMotivos[i]  =  motivo;
+            }
 
+            for (int i = 15; i < 30; i++)
+            {
+                TipoMotivo motivoUrg = new TipoMotivo();
+                motivoUrg.Urgencia = numero.Next(1,  5);
+            }
+        }
 
+     
 
     }
 }
