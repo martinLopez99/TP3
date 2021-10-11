@@ -6,6 +6,7 @@ namespace EJ3
     {
         static void Main(string[] args)
         {
+          
             Hospital_Contexto hospitalContexto;
 
             hospitalContexto = new Hospital_Contexto(new Consulta());
