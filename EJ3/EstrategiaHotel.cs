@@ -8,6 +8,6 @@ namespace EJ3
 {
     public abstract class EstrategiaHotel
     {
-        public abstract void Paciente_a_Atender();
+        public abstract Paciente Paciente_a_Atender();
     }
 }

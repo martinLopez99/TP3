@@ -8,11 +8,19 @@ namespace EJ3
 {
     public class Consulta : EstrategiaHotel
     {
-        public override void Paciente_a_Atender()
+        public override Paciente Paciente_a_Atender()
         {
+            CreadorLista ctorLista = new();
             // Aca deasrrollo la estrategia de consulta 
             // FIFO
-            Console.WriteLine("Estrategia Consulta");
+            var listaPacientes = ctorLista.ConstructorDB10();
+            int i = 0;
+            while (listaPacientes[i].Motivo.Estado() != 0)
+            {
+                i++;
+            }
+
+            return listaPacientes[i];
 
         }
     }

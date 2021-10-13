@@ -19,14 +19,16 @@ namespace EJ3
                 {
                     for (int i = 0; i < 30; i++)
                     {
-                        iListaPacientes.Insert(i, ObtenerPaciente(i));
+                        var x = ObtenerPaciente(i);
+                        while (iListaPacientes.Count > i && iListaPacientes[i].FechaDeIngreso < x.FechaDeIngreso)
+                        {
+                            i++;
+                        }
+                        iListaPacientes.Insert(i, x);
                     }
                 }
                 return iListaPacientes;
             }
-
-
-
         }
 
         public Paciente ObtenerPaciente(int pPos)
@@ -34,15 +36,14 @@ namespace EJ3
             string nombre = Repositorio.DevuelveNombre(pPos);
             string dni  = Repositorio.DevuelveDni(pPos);
             string apellido = Repositorio.DevuelveApellido(pPos);
-            string fechaIngreso = Repositorio.DevuelveFechaIngreso(pPos);
+            DateTime fechaIngreso = Repositorio.DevuelveFechaIngreso(pPos);
             TipoMotivo motivo = Repositorio.DevuelveMotivo(pPos);
 
-            Paciente paciente = new Paciente(nombre, apellido, dni, motivo);
+            Paciente paciente = new Paciente(nombre, apellido, dni, motivo,fechaIngreso);
             return paciente;    
 
 
         }
-
 
     }
 }

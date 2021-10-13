@@ -25,9 +25,9 @@ namespace EJ3
             return BaseDeDatos.vectorDNI[pPos];
         }
 
-        public static string DevuelveFechaIngreso(int pPos)
+        public static DateTime DevuelveFechaIngreso(int pPos)
         {
-            return BaseDeDatos.vectorDNI[pPos];
+            return BaseDeDatos.vectorFechaDeIngreso[pPos];
         }
         public static TipoMotivo DevuelveMotivo(int pPos)
         {

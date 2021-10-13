@@ -12,13 +12,13 @@ namespace EJ3
         private TipoMotivo imotivo;
         private DateTime iFechaIngreso;
 
-        public Paciente(string pNombe, string pApellido, string pDNI, TipoMotivo pMotivo)
+        public Paciente(string pNombe, string pApellido, string pDNI, TipoMotivo pMotivo, DateTime pFechaDeIngreso)
         {
             this.inombre = pNombe;
             this.iappellido = pApellido;
             this.iDNI = pDNI;
             this.imotivo = pMotivo;
-            this.iFechaIngreso = DateTime.Now;
+            this.iFechaIngreso = pFechaDeIngreso;
         }
 
         public string Nombre
@@ -42,9 +42,9 @@ namespace EJ3
             get { return this.imotivo; }
             set { this.imotivo = value; }
         }
-        public string FechaDeIngreso
+        public DateTime FechaDeIngreso
         {
-            get { return this.iFechaIngreso.ToString(); }
+            get { return this.iFechaIngreso; }
         }
 
 
