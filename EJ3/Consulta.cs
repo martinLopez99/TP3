@@ -19,9 +19,7 @@ namespace EJ3
             {
                 i++;
             }
-
             return listaPacientes[i];
-
         }
     }
 }

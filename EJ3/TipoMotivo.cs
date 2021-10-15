@@ -24,7 +24,7 @@ namespace EJ3
         {
             if (iConsulta)
             {
-                return 0;
+                return 6;
             }
             else
             {
