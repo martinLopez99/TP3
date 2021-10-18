@@ -6,20 +6,17 @@ using System.Threading.Tasks;
 
 namespace EJ3
 {
-    public class Consulta : EstrategiaHotel
+    public class Consulta : IEstrategiaHotel
     {
-        public override Paciente Paciente_a_Atender()
+        public Paciente Paciente_a_Atender(List<Paciente> pLista) // Cuando puse interface en EstrategiaHotel,me tiro error, lo solucione sacando override
         {
-            CreadorLista ctorLista = new();
-            // Aca deasrrollo la estrategia de consulta 
-            // FIFO
-            var listaPacientes = ctorLista.ConstructorDB10();
+           
             int i = 0;
-            while (listaPacientes[i].Motivo.Estado() != 0)
+            while (pLista[i].Motivo.Estado() != 0)
             {
                 i++;
             }
-            return listaPacientes[i];
+            return pLista[i];
         }
     }
 }

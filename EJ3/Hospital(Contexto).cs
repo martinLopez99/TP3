@@ -8,16 +8,34 @@ namespace EJ3
 {
     public class Hospital_Contexto
     {
-        EstrategiaHotel estrategiaH;
+        IEstrategiaHotel iestrategiaH;
+        //Paciente paciente; 
 
-        public Hospital_Contexto(EstrategiaHotel estrategia)
+        public Hospital_Contexto(IEstrategiaHotel piestrategiaH)
         {
-            this.estrategiaH = estrategia;
+            //this.paciente = pPaciente;
+            this.iestrategiaH = piestrategiaH;
         }
 
-        public void HospitalInterfaz()
+        /*public void HospitalInterfaz()
         {
-            estrategiaH.Paciente_a_Atender();
+           
+            iestrategiaH.Paciente_a_Atender();
+            
+        }*/
+
+        public IEstrategiaHotel GetStrategy(int pSala)
+        {
+
+            if (pSala == 1)
+            {
+                return iestrategiaH = new Consulta();
+            }
+            else
+            {
+                return iestrategiaH = new Urgencia();
+            }
         }
+
     }
 }

@@ -13,10 +13,12 @@ namespace EJ3
 
         public bool Consulta
         {
+            get { return this.iConsulta; }
             set { this.iConsulta = value; }
         }
         public int Urgencia
         {
+            get { return this.iUrgencia; }
             set { this.iUrgencia = value; }
         }
 

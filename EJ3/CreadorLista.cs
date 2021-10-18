@@ -7,12 +7,17 @@ using System.Threading.Tasks;
 namespace EJ3
 {
     public class CreadorLista
-    {      
+    {
+        BaseDeDatos iBaseDatos = new BaseDeDatos();
         List<Paciente> iListaPacientes = new List<Paciente>();
         
         public List<Paciente> ConstructorDB10()
         {
             {
+                this.iBaseDatos.FillFechasIngreso();
+
+                BaseDeDatos.FillTipoMotivo();
+
                 if (iListaPacientes == null)
                     iListaPacientes.Add(ObtenerPaciente(0));
                 else
@@ -41,9 +46,6 @@ namespace EJ3
 
             Paciente paciente = new Paciente(nombre, apellido, dni, motivo,fechaIngreso);
             return paciente;    
-
-
         }
-
     }
 }
