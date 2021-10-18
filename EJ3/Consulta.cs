@@ -12,7 +12,7 @@ namespace EJ3
         {
            
             int i = 0;
-            while (pLista[i].Motivo.Estado() != 0)
+            while (!pLista[i].Motivo.Consulta)
             {
                 i++;
             }

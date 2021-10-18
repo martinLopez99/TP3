@@ -14,7 +14,7 @@ namespace EJ3
             Paciente actual = pLista[i];
             while (pLista.Count > i)
             {
-                if (actual.Motivo.Estado() > pLista[i].Motivo.Estado())
+                if (actual.Motivo.Estado() < pLista[i].Motivo.Estado())
                 {
                     actual = pLista[i];
                 }

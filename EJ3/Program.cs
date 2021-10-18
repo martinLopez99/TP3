@@ -16,13 +16,11 @@ namespace EJ3
             //List<Paciente> listapacientes = new List<Paciente>();
             var listapacientes = creador.ConstructorDB10();
 
-            /*  Hospital_Contexto hospitalContexto;
+              Hospital_Contexto hospitalContexto;
 
-              hospitalContexto = new Hospital_Contexto(new Consulta());
-              hospitalContexto.HospitalInterfaz();
+              
 
-              hospitalContexto = new Hospital_Contexto(new Urgencia());
-              hospitalContexto.HospitalInterfaz();*/
+              
             int op = -1;
             while (op != 0)
             {
@@ -37,11 +35,18 @@ namespace EJ3
                 switch (op)
                 {
                     case 0: break;
-                    case 1: paciente = facade.DevolverPaciente(op, listapacientes);
+                    case 1:
+                                 hospitalContexto = new Hospital_Contexto(new Consulta());
+                                 hospitalContexto.HospitalInterfaz(listapacientes);
+                                 paciente = facade.DevolverPaciente(hospitalContexto, listapacientes);
                                  MostrarInfoPaciente(paciente); break;
 
-                    case 2: paciente = facade.DevolverPaciente(op, listapacientes);
-                                 MostrarInfoPaciente(paciente); break;
+                    case 2:
+                                    hospitalContexto = new Hospital_Contexto(new Urgencia());
+                                    hospitalContexto.HospitalInterfaz(listapacientes);
+                                    paciente = facade.DevolverPaciente(hospitalContexto, listapacientes);
+                                    MostrarInfoPaciente(paciente);
+                        break;
 
                     default: Console.Clear();
                                   Console.WriteLine("Ingrese una opcion valida"); break;
@@ -54,20 +59,21 @@ namespace EJ3
             void MostrarInfoPaciente(Paciente pPaciente)
             {
                 Console.Clear();
-                Console.WriteLine($"Paciente: {pPaciente.Nombre}" +
-                                               $"Apellido: {pPaciente.Apellido}" +
-                                               $"DNI: {pPaciente.DNI}" +
-                                               $"Fecha de Ingreso: {pPaciente.FechaDeIngreso}");
+                Console.WriteLine($"Paciente: {pPaciente.Nombre}\n" +
+                                               $"Apellido: {pPaciente.Apellido}\n" +
+                                               $"DNI: {pPaciente.DNI}\n" +
+                                               $"Fecha de Ingreso: {pPaciente.FechaDeIngreso}\n");
                 if (pPaciente.Motivo.Consulta)
                 {
                     Console.WriteLine($"Motivo: Consulta");
                 }
                 else
                 {
-                    Console.WriteLine($"Motivo: Urgencia");
-                    Console.WriteLine($"Nivel: {pPaciente.Motivo.Urgencia}");
+                    Console.WriteLine($"Motivo: Urgencia\n");
+                    Console.WriteLine($"Nivel: {pPaciente.Motivo.Urgencia}\n");
                 }
-
+                Console.WriteLine($"- Presione cualquier tecla para salir\n");
+                Console.ReadKey();
                 facade.EliminarPaciente(pPaciente,listapacientes);
             }
 

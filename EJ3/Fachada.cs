@@ -8,14 +8,14 @@ namespace EJ3
 {
     public class Fachada
     {
-
-        Hospital_Contexto Hospital;
         IEstrategiaHotel estrategia;
 
-        public Paciente DevolverPaciente(int pSala, List<Paciente> pLista)
+
+        public Paciente DevolverPaciente(Hospital_Contexto pContexto, List<Paciente> pLista)
         {
-            estrategia =Hospital.GetStrategy(pSala);
-            return estrategia.Paciente_a_Atender(pLista);
+            //estrategia =GetStrategy(pSala);
+            return pContexto.HospitalInterfaz(pLista);
+            //return estrategia.Paciente_a_Atender(pLista);
         }
 
         public void EliminarPaciente(Paciente pPaciente, List<Paciente> pLista)

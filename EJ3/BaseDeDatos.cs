@@ -31,34 +31,35 @@ namespace EJ3
         public static void FillTipoMotivo() // ver de cabiar de lugar sin que genere problemas 
         {
             Random numero = new Random();
-            TipoMotivo motivo = new TipoMotivo();
 
             if (vectorMotivos == null)
             {
-                SeleccionRandom(numero, motivo);
+                SeleccionRandom(numero);
             }
             else
             {
                 int i = 0;
                 while (i < 30)
                 {
-                    SeleccionRandom(numero, motivo);
+                    SeleccionRandom(numero);
                     i++;
                 }
             }
 
 
-            static void SeleccionRandom(Random numero,TipoMotivo motivo)
+            static void SeleccionRandom(Random numero)
             {
-                if ((numero.Next(0, 1) % 2) == 0)
+                int algo2 = numero.Next(0, 2);
+                if ((algo2 % 2) == 0)
                 {
-                    motivo.Consulta = true;
+                    TipoMotivo motivo = new TipoMotivo(true,6);
+                   
                     vectorMotivos.Add(motivo);
                 }
                 else
                 {
-                    motivo.Consulta = false;
-                    motivo.Urgencia = numero.Next(1, 5);
+                    int nivel = numero.Next(1, 6);
+                    TipoMotivo motivo = new TipoMotivo(false, nivel);
                     vectorMotivos.Add(motivo);
                 }
             }

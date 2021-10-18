@@ -11,6 +11,12 @@ namespace EJ3
         private bool iConsulta = false;
         private int iUrgencia;
 
+        public TipoMotivo(bool pConsulta, int pUrgencia)
+        {
+            this.iConsulta = pConsulta;
+            this.iUrgencia = pUrgencia;
+        }
+
         public bool Consulta
         {
             get { return this.iConsulta; }
@@ -24,13 +30,13 @@ namespace EJ3
 
         public int Estado()
         {
-            if (iConsulta)
+            if (Consulta)
             {
                 return 6;
             }
             else
             {
-                return this.iUrgencia;
+                return Urgencia;
             }
         }
 
