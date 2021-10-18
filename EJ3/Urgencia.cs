@@ -8,13 +8,13 @@ namespace EJ3
 {
     public class Urgencia : IEstrategiaHotel
     {
-        public Paciente Paciente_a_Atender(List<Paciente> pLista) // Cuando puse interface en EstrategiaHotel,me tiro error, lo solucione sacando override 
+        public Paciente Paciente_a_Atender(List<Paciente> pLista) 
         {
             int i = 0;
             Paciente actual = pLista[i];
             while (pLista.Count > i)
             {
-                if (actual.Motivo.Estado() < pLista[i].Motivo.Estado())
+                if (actual.Motivo.Urgencia < pLista[i].Motivo.Urgencia && pLista[i].Motivo.Urgencia!=6)
                 {
                     actual = pLista[i];
                 }

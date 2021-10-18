@@ -22,13 +22,11 @@ namespace EJ3
         public static string[] vectorDNI = new string[] { "62384494","91135318","66979065","25610997","96793890","86658922","47777289","33466665","75825036","89091100",
                                                                              "47310493","83731086","44302486","67174008","89431381","41281948","37492217","37288313","60429177","28776304",
                                                                              "46254643","88443989","14334214","29245542","84614778","81339924","77794100","19459990","73907476","10334985"};
-        //public static DateTime[] vectorFechaDeIngreso = new DateTime[] { };
         public static List<DateTime> vectorFechaDeIngreso = new List<DateTime>();
        
-        //public static TipoMotivo[] vectorMotivos = new TipoMotivo[] { };
         public static List<TipoMotivo> vectorMotivos = new List<TipoMotivo>();
 
-        public static void FillTipoMotivo() // ver de cabiar de lugar sin que genere problemas 
+        public static void FillTipoMotivo()
         {
             Random numero = new Random();
 
@@ -63,18 +61,7 @@ namespace EJ3
                     vectorMotivos.Add(motivo);
                 }
             }
-            /*for (int i = 0; i < 15; i++)
-            {
-                TipoMotivo motivo = new TipoMotivo();
-                motivo.Consulta = true;
-                vectorMotivos[i]  =  motivo;
-            }
-
-            for (int i = 15; i < 30; i++)
-            {
-                TipoMotivo motivoUrg = new TipoMotivo();
-                motivoUrg.Urgencia = numero.Next(1,  5);
-            }*/
+            
         }
 
         DateTime FechaAleatorio()
@@ -90,7 +77,6 @@ namespace EJ3
             {
                  DateTime fechaIngreso = new DateTime();
                  fechaIngreso = FechaAleatorio();
-                //vectorFechaDeIngreso[i] = fechaIngreso;
                 if (vectorFechaDeIngreso == null)
                 {
                     vectorFechaDeIngreso.Add(fechaIngreso);
@@ -99,7 +85,6 @@ namespace EJ3
                 {
                     vectorFechaDeIngreso.Insert(i,fechaIngreso);
                 }
-
 
             }
         }

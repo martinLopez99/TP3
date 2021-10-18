@@ -13,7 +13,6 @@ namespace EJ3
             Fachada facade = new Fachada();
             Paciente paciente;
             CreadorLista creador= new CreadorLista();
-            //List<Paciente> listapacientes = new List<Paciente>();
             var listapacientes = creador.ConstructorDB10();
 
               Hospital_Contexto hospitalContexto;
@@ -62,16 +61,18 @@ namespace EJ3
                 Console.WriteLine($"Paciente: {pPaciente.Nombre}\n" +
                                                $"Apellido: {pPaciente.Apellido}\n" +
                                                $"DNI: {pPaciente.DNI}\n" +
-                                               $"Fecha de Ingreso: {pPaciente.FechaDeIngreso}\n");
+                                               $"Fecha de Ingreso: {pPaciente.FechaDeIngreso}");
                 if (pPaciente.Motivo.Consulta)
                 {
-                    Console.WriteLine($"Motivo: Consulta");
+                    Console.WriteLine("Motivo: consulta");
                 }
                 else
                 {
-                    Console.WriteLine($"Motivo: Urgencia\n");
-                    Console.WriteLine($"Nivel: {pPaciente.Motivo.Urgencia}\n");
+                    Console.WriteLine("Motivo: Urgencia");
+                    Console.WriteLine($"Nivel: {pPaciente.Motivo.Urgencia}");
+
                 }
+
                 Console.WriteLine($"- Presione cualquier tecla para salir\n");
                 Console.ReadKey();
                 facade.EliminarPaciente(pPaciente,listapacientes);

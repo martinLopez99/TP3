@@ -44,7 +44,6 @@ namespace EJ3
             DateTime fechaIngreso = Repositorio.DevuelveFechaIngreso(pPos);
             TipoMotivo motivo = Repositorio.DevuelveMotivo(pPos);
 
-
             Paciente paciente = new Paciente(nombre, apellido, dni, motivo,fechaIngreso);
             return paciente;    
         }

@@ -28,17 +28,5 @@ namespace EJ3
             set { this.iUrgencia = value; }
         }
 
-        public int Estado()
-        {
-            if (Consulta)
-            {
-                return 6;
-            }
-            else
-            {
-                return Urgencia;
-            }
-        }
-
     }
 }

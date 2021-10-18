@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EJ3
 {
-    public interface IEstrategiaHotel //en vez de abstract class, le puse interface 
+    public interface IEstrategiaHotel 
     {
         public abstract Paciente Paciente_a_Atender(List<Paciente> pLista);
 
